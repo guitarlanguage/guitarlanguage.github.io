@@ -1,26 +1,47 @@
+/* 
+#abbaab
+→ 
+#ffffff
+
+
+#d38312
+→ 
+#a83279*/
+
 /* Remove the navbar's default rounded borders and increase the bottom margin */
 body {
-background: black;
-font-family: neplus ultra;
-color: cyan;
+  /* background: linear-gradient(#00c9ff, #92fe9d); */
+  font-family: neplus ultra;
+  background-color: black;
+
+  /* color: cyan; */
 }
 h2 {
-  color: cyan;
+  /* color: cyan; */
+}
+#control {
+  font-family: "Luckiest Guy", cursive;
+  font-size: 40px;
+}
+path {
+  fill: transparent;
 }
 
-
-
+text {
+  fill: #ff9800;
+}
 /* Remove the jumbotron's default bottom margin */
- .jumbotron {
-
-  background-image: url(glsHeader2.svg);
+.jumbotron {
+  background-image: url(../img/glsHeader2.svg);
   background-size: 100%;
   background-repeat: no-repeat;
   background-color: black;
+  /* background: linear-gradient(#d38312, #a83279); */
   padding-top: 7.6%;
   padding-bottom: 0%;
   margin-top: 3%;
   text-align: center;
+
   /*border: 1px solid white;*/
 }
 
@@ -29,7 +50,6 @@ h2 {
   padding-bottom: 0%;
   text-align: center;
 }
-
 
 ul {
   color: cyan;
@@ -47,7 +67,6 @@ a {
   margin-top: 0%;
   border-radius: 0;
   /*border: 1px solid white;*/
-
 }
 
 button {
@@ -56,9 +75,9 @@ button {
 }
 
 .hide {
-  display: none; }
+  display: none;
+}
 
-  
 .panel-heading {
   color: cyan;
   font-size: 1.4em;
@@ -68,21 +87,19 @@ button {
   text-align: center;
 }
 
-#yourTuning432{
+#yourTuning432 {
   width: 100%;
   height: 200px;
-  Background-color: cyan;/* Your Color */
+  background-color: cyan; /* Your Color */
   font-size: 2.5em;
 }
 
-#yourTuning440{
+#yourTuning440 {
   width: 100%;
   height: 200px;
-  Background-color: green;/* Your Color */
+  background-color: green; /* Your Color */
   font-size: 2.5em;
 }
-
-
 
 /* Add a gray background color and some padding to the footer */
 footer {
