@@ -240,8 +240,8 @@
   <!-- Responsive Layout Framework: Swaps table tracking into scroll containers for touch displays -->
   <div class="relative overflow-x-auto shadow-2xl border border-brand-gold-dark/10 rounded-2xl bg-zinc-900/60">
     <table class="w-full text-left text-sm text-gray-300">
-      
-      <!-- Table Headers -->
+  
+      <!-- Table Headers (Stay Static) -->
       <thead class="text-xs uppercase tracking-wider text-brand-gold-dark/80 bg-zinc-950/80 border-b border-zinc-800">
         <tr>
           <th scope="col" class="px-6 py-4 font-semibold">Date</th>
@@ -252,128 +252,87 @@
         </tr>
       </thead>
       
-      <!-- Table Body Content -->
-      <tbody class="divide-y divide-zinc-800/60">
-        <!-- The container where your list will live -->
-        <div id="tour-dates-container">
-          <p>Loading upcoming shows...</p>
-        </div>
+      <!-- Table Body Content (Rows get injected directly here) -->
+      <tbody id="tour-dates-container" class="divide-y divide-zinc-800/60">
+        <!-- Your JavaScript will loop and append the dynamic <tr> items right here -->
+      </tbody>
 
-        <!-- JavaScript to fetch and render the JSON payload -->
-        <script>
-          async function loadTourDates() {
-            try {
-              // Fetch the local JSON file relative to your repository root
-              const response = await fetch('assets/js/gigs.json');   
-              const gigs = await response.json();
-              
-              const container = document.getElementById('tour-dates-container');
-              
-              // Clear the loading text
-              container.innerHTML = '';
-              
-              if (gigs.length === 0) {
-                container.innerHTML = '<p>No upcoming shows scheduled. Check back soon!</p>';
-                return;
-              }
+    </table>
 
-              // Build out the markup string
-              let htmlMarkup = '<table class="tour-list w-full text-left text-sm text-gray-300">';
-              
-              gigs.forEach(gig => {
-                htmlMarkup += `
-                  <thead class="tour-row text-xs uppercase tracking-wider text-brand-gold-dark/80 bg-zinc-950/80 border-b border-zinc-800">
-                    <div>
-                      <span class="tour-date" style="font-size: 0.85rem; color: #666;">${gig.date} @ ${gig.time}</span>
-                      <h3 class="tour-venue" style="margin: 0.25rem 0;">${gig.venue}</h3>
-                      <span class="tour-location" style="font-size: 0.85rem; color: #888;">${gig.location}</span>
-                    </div>
-                    ${gig.link ? `<a href="${gig.link}" class="tour-btn" target="_blank" style="align-self: center; padding: 0.5rem 1rem; background: #000; color: #fff; text-decoration: none; border-radius: 4px;">Tickets</a>` : ''}
-                  </div>
-                `;
-              });
-              
-              htmlMarkup += '</table>';
-              container.innerHTML = htmlMarkup;
-              
-            } catch (error) {
-              console.error('Error loading tour dates:', error);
-              document.getElementById('tour-dates-container').innerHTML = '<p>Unable to load tour dates at this time.</p>';
-            }
+    <!-- Script kept neatly outside the layout table elements -->
+    <script>
+      async function loadTourDates() {
+        try {
+          const response = await fetch('assets/js/gigs.json');   
+          const gigs = await response.json();
+          
+          const container = document.getElementById('tour-dates-container');
+          container.innerHTML = '';
+          
+          if (gigs.length === 0) {
+            container.innerHTML = '<tr><td colspan="5" class="px-6 py-8 text-center text-gray-500 italic">No upcoming shows scheduled. Check back soon!</td></tr>';
+            return;
           }
 
-          // Execute the fetch routine as soon as the DOM content is parsed
-          document.addEventListener('DOMContentLoaded', loadTourDates);
-        </script>
+          let htmlMarkup = '';
+          
+          gigs.forEach(gig => {
+            // 1. Handle Status Badges Dynamically based on your JSON values
+            let statusBadge = '';
+            if (gig.status === 'Confirmed') {
+              statusBadge = `<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-950 text-emerald-400 border border-emerald-800/40">Confirmed</span>`;
+            } else if (gig.status === 'Low Tickets') {
+              statusBadge = `<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-amber-950 text-amber-400 border border-amber-800/40">Low Tickets</span>`;
+            } else {
+              statusBadge = `<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-zinc-800 text-zinc-400 border border-zinc-700/40">${gig.status || 'Confirmed'}</span>`;
+            }
 
-        <!-- Row 1: High Visibility Festival Headline -->
-        <tr class="hover:bg-zinc-900/80 transition-colors group">
-          <td class="px-6 py-5 whitespace-nowrap font-mono text-xs text-brand-gold-light font-semibold">
-            AUG 14, 2026
-          </td>
-          <td class="px-6 py-5 font-medium text-white">
-            <span class="block">Elysian Echoes Festival</span>
-            <span class="text-[11px] text-brand-gold-dark/70 font-normal">Main Stage • Headliner Slot</span>
-          </td>
-          <td class="px-6 py-5 text-gray-400 whitespace-nowrap">Paris, FR</td>
-          <td class="px-6 py-5 whitespace-nowrap">
-            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-950 text-emerald-400 border border-emerald-800/40">
-              Confirmed
-            </span>
-          </td>
-          <td class="px-6 py-5 text-right whitespace-nowrap">
-            <a href="#" class="inline-flex items-center justify-center px-3 py-1.5 text-2xs font-bold uppercase tracking-wider text-[#1a1a1a] bg-brand-gold-dark hover:bg-brand-gold-light rounded-md transition-all">
-              Tickets
-            </a>
-          </td>
-        </tr>
+            // 2. Handle Action Button Dynamically (Tickets Link vs Book Date placeholder)
+            let actionButton = '';
+            if (gig.link) {
+              actionButton = `
+                <a href="${gig.link}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-3 py-1.5 text-2xs font-bold uppercase tracking-wider text-[#1a1a1a] bg-brand-gold-dark hover:bg-brand-gold-light rounded-md transition-all">
+                  Tickets
+                </a>`;
+            } else {
+              actionButton = `
+                <a href="#epk-section" class="inline-flex items-center justify-center px-3 py-1.5 text-2xs font-bold uppercase tracking-wider text-brand-gold-dark border border-brand-gold-dark/40 hover:text-brand-gold-light hover:border-brand-gold-light rounded-md transition-all">
+                  Book Date
+                </a>`;
+            }
 
-        <!-- Row 2: Standard Premium Venue Show -->
-        <tr class="hover:bg-zinc-900/80 transition-colors">
-          <td class="px-6 py-5 whitespace-nowrap font-mono text-xs text-gray-400">
-            SEP 02, 2026
-          </td>
-          <td class="px-6 py-5 font-medium text-white">
-            <span class="block">The Vanguard Symphony Hall</span>
-            <span class="text-[11px] text-gray-500 font-normal">Acoustic Ambient Showcase</span>
-          </td>
-          <td class="px-6 py-5 text-gray-400 whitespace-nowrap">London, UK</td>
-          <td class="px-6 py-5 whitespace-nowrap">
-            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-amber-950 text-amber-400 border border-amber-800/40">
-              Low Tickets
-            </span>
-          </td>
-          <td class="px-6 py-5 text-right whitespace-nowrap">
-            <a href="#" class="inline-flex items-center justify-center px-3 py-1.5 text-2xs font-bold uppercase tracking-wider text-[#1a1a1a] bg-brand-gold-dark hover:bg-brand-gold-light rounded-md transition-all">
-              Tickets
-            </a>
-          </td>
-        </tr>
+            // 3. Build Semantic Table Rows matching your exact style specs
+            htmlMarkup += `
+              <tr class="hover:bg-zinc-900/80 transition-colors group">
+                <td class="px-6 py-5 whitespace-nowrap font-mono text-xs text-brand-gold-light font-semibold">
+                  ${gig.date}
+                </td>
+                <td class="px-6 py-5 font-medium text-white">
+                  <span class="block">${gig.venue}</span>
+                  <span class="text-[11px] text-brand-gold-dark/70 font-normal">${gig.notes || ''}</span>
+                </td>
+                <td class="px-6 py-5 text-gray-400 whitespace-nowrap">${gig.location}</td>
+                <td class="px-6 py-5 whitespace-nowrap">
+                  ${statusBadge}
+                </td>
+                <td class="px-6 py-5 text-right whitespace-nowrap">
+                  ${actionButton}
+                </td>
+              </tr>
+            `;
+          });
+          
+          container.innerHTML = htmlMarkup;
+          
+        } catch (error) {
+          console.error('Error loading tour dates:', error);
+          document.getElementById('tour-dates-container').innerHTML = '<tr><td colspan="5" class="px-6 py-5 text-center text-red-400">Unable to load tour dates at this time.</td></tr>';
+        }
+      }
 
-        <!-- Row 3: Hold / Booking Hold Option -->
-        <tr class="hover:bg-zinc-900/80 transition-colors bg-zinc-950/20">
-          <td class="px-6 py-5 whitespace-nowrap font-mono text-xs text-gray-500">
-            OCT 19, 2026
-          </td>
-          <td class="px-6 py-5 font-medium text-gray-400 italic">
-            <span class="block">Routing Hold • Available</span>
-            <span class="text-[11px] text-gray-500 font-normal not-italic">Midwest Region Touring Bloc</span>
-          </td>
-          <td class="px-6 py-5 text-gray-500 whitespace-nowrap">Chicago, US</td>
-          <td class="px-6 py-5 whitespace-nowrap">
-            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-zinc-800 text-zinc-400 border border-zinc-700/40">
-              Hold Open
-            </span>
-          </td>
-          <td class="px-6 py-5 text-right whitespace-nowrap">
-            <a href="#epk-section" class="inline-flex items-center justify-center px-3 py-1.5 text-2xs font-bold uppercase tracking-wider text-brand-gold-dark border border-brand-gold-dark/40 hover:text-brand-gold-light hover:border-brand-gold-light rounded-md transition-all">
-              Book Date
-            </a>
-          </td>
-        </tr>
+      document.addEventListener('DOMContentLoaded', loadTourDates);
+    </script>
 
-      </tbody>
-    </table>
   </div>
 </div>
 
