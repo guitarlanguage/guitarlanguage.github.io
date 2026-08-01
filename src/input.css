@@ -1,0 +1,31 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+@import "tailwindcss";
+
+
+
+@import "flowbite/src/themes/default"; 
+
+@plugin "flowbite/plugin";
+
+@theme {
+  /* Syntax: --color-{custom-name}: hex/rgb/oklch; */
+  --color-brand-black: #1a1a1a;
+  --color-brand-gold-dark: #8c7a5a;
+  --color-brand-gold-light: #f4e0b6;
+
+  /* 2. Wrap multi-word font families in single quotes inside the token */
+  --font-bodoni: 'Libre Bodoni', sans-serif;
+  --font-montserrat: 'Montserrat', sans-serif;
+  
+  /* Alternative: Overwrite Tailwind's global default font */
+  /* --font-sans: 'Plus Jakarta Sans', sans-serif; */
+}
+@source "../node_modules/flowbite";
+
+@source "../node_modules/flowbite/**/*.js";
+@source "./node_modules/flowbite/**/*.js";
+
+

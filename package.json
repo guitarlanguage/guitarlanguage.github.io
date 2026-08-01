@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "@tailwindcss/cli": "^4.3.2",
+    "@tailwindcss/postcss": "^4.3.2",
+    "flowbite": "^4.0.2",
+    "postcss": "^8.5.16",
+    "tailwindcss": "^4.3.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tailwindcss -i ./src/input.css -o ./src/output.css --watch"
+  }
+}

@@ -1,139 +1,390 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>GLS</title>
+  <head>
+    <title font-bodoni>La R&eacutesonance</title>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./assets/css/styles.css">
-    <script src="https://use.typekit.net/cgc8fzp.js"></script>
-    <script>try{Typekit.load({ async: true });}catch(e){}</script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <!-- auth0 cdn -->
-    <script src="https://cdn.auth0.com/js/auth0/9.0.1/auth0.min.js"></script>
-</head>
+    <link href="src\output.css" rel="stylesheet">
+    <script src="https://jsdelivr.net"></script>
+  </head>
 
-<body class="container-fluid">
+  <body bgcolor="#1a1a1a" >
+    <!-- Main Navbar Wrapper with your custom #1a1a1a dark theme background -->
+    <nav class="bg-[#1a1a1a] border-b border-brand-gold-dark/20 text-gray-200 w-full relative z-50">
+      
+      <!-- DESKTOP VIEW: Gridded 3-column layout distribution -->
+      <div class="max-w-screen-xl mx-auto p-4 hidden md:grid grid-cols-3 items-center">
+        
+        <!-- 1. DESKTOP LEFT SIDE: 4 Navigation Links -->
+        <div class="flex items-center justify-start gap-6 font-montserrat text-sm font-medium tracking-wide">
+          
+          <a href="#" class="text-brand-gold-dark hover:text-brand-gold-light transition-colors">About</a>
+          <a href="#" class="text-brand-gold-dark hover:text-brand-gold-light transition-colors">Music</a>
+          <a href="#" class="text-brand-gold-dark hover:text-brand-gold-light transition-colors">Videos</a>
+          <a href="#" class="text-brand-gold-dark hover:text-brand-gold-light transition-colors">Gallery</a>
+        </div>
 
-<div class="jumbotron">
-  <!--<div class="container text-center">-->
-    <p><button id="authLogin" type="button" class="btn btn-danger">Take the Journey</button></p>
-  <!--</div>-->
-</div>
+        <!-- 2. DESKTOP CENTER: Company Brand Logo/Text -->
+        <div class="flex justify-center">
+          <a href="#" class="font-bodoni text-xl font-bold tracking-wider text-brand-gold-light uppercase">
+            La Résonance
+          </a>
+        </div>
 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+        <!-- 3. DESKTOP RIGHT SIDE: 2 Action Links/Buttons -->
+        <div class="flex items-center justify-end gap-6 font-montserrat text-sm font-medium">
+          <a href="#" class="text-brand-gold-dark hover:text-brand-gold-light transition-colors">Login</a>
+          <a href="#" class="inline-flex items-center justify-center px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#1a1a1a] bg-brand-gold-dark hover:bg-brand-gold-light rounded-lg shadow-md transition-all">
+            Tickets
+          </a>
+        </div>
+      </div>
+
+      <!-- MOBILE VIEW: Flips to a clean, spacious mobile bar to protect your layout spacing -->
+      <div class="max-w-screen-xl mx-auto p-4 flex md:hidden items-center justify-between">
+        
+        <!-- Mobile Brand Placement -->
+        <a href="#" class="font-bodoni text-lg font-bold tracking-wider text-brand-gold-light uppercase">
+          La Résonance
+        </a>
+
+        <!-- Flowbite Mobile Trigger Button -->
+        <button data-collapse-toggle="mobile-menu" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-brand-gold-dark rounded-lg hover:bg-zinc-900 focus:outline-none focus:ring-2 focus:ring-brand-gold-dark/40" aria-controls="mobile-menu" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://w3.org" fill="none" viewBox="0 0 17 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- MOBILE DROPDOWN PANEL: Toggled dynamically by Flowbite JS target attributes -->
+      <div class="hidden w-full md:hidden bg-zinc-950/95 border-b border-brand-gold-dark/10" id="mobile-menu">
+        <div class="flex flex-col font-montserrat p-4 space-y-3 text-base font-medium tracking-wide">
+          <a href="#" class="block py-2 px-3 text-brand-gold-light border-b border-zinc-900">Home</a>
+          <a href="#" class="block py-2 px-3 text-brand-gold-dark hover:text-brand-gold-light border-b border-zinc-900">About</a>
+          <a href="#" class="block py-2 px-3 text-brand-gold-dark hover:text-brand-gold-light border-b border-zinc-900">Services</a>
+          <a href="#" class="block py-2 px-3 text-brand-gold-dark hover:text-brand-gold-light border-b border-zinc-900">Blog</a>
+          <a href="#" class="block py-2 px-3 text-brand-gold-dark hover:text-brand-gold-light border-b border-zinc-900">Login</a>
+          <div class="pt-2">
+            <a href="#" class="block text-center py-2.5 px-4 font-semibold text-xs uppercase tracking-wider text-[#1a1a1a] bg-brand-gold-dark hover:bg-brand-gold-light rounded-md">
+              Tickets
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </nav>
+
+<!-- Bounding Section for the EPK Module -->
+<section id="epk-section" class="w-full max-w-5xl mx-auto px-4 py-16 bg-[#1a1a1a] text-gray-200 antialiased">
+  
+  <!-- 1. HEADER & PRESS LOGLINE -->
+  <div class="text-center mb-12">
+    <span class="font-montserrat text-xs font-semibold tracking-widest text-brand-gold-dark uppercase block mb-2">Electronic Press Kit</span>
+    <h2 class="font-bodoni text-4xl md:text-5xl font-bold text-brand-gold-light tracking-wide mb-4">Booking & Press Assets</h2>
+    <div class="w-24 h-0.5 bg-brand-gold-dark/40 mx-auto mb-6"></div>
+    <p class="font-montserrat text-sm md:text-base text-gray-400 max-w-2xl mx-auto italic">
+      "An immersive sonic journey bridging classical precision with modern atmospheric depth. La Résonance delivers high-energy, unforgettable live music experiences tailored for premium concert spaces and festivals."
+    </p>
+  </div>
+
+  <!-- 2. TWO-COLUMN CORE CONTENT: Media Player & Stats -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+    
+    <!-- Left Column: Featured Video / Audio Reel Container -->
+    <div class="bg-zinc-900 border border-brand-gold-dark/10 rounded-2xl p-5 flex flex-col justify-between">
+      <div>
+        <h3 class="font-bodoni text-xl font-semibold text-brand-gold-light mb-3">Live Performance Reel</h3>
+        <p class="font-montserrat text-xs text-gray-400 mb-4">See how we captivate the room. High-definition multi-track audio recorded live.</p>
+      </div>
+      <!-- Video Element Frame Placeholder -->
+      <div class="aspect-video bg-zinc-950 border border-zinc-800 rounded-xl flex items-center justify-center relative overflow-hidden group">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+        <button class="z-20 p-4 bg-brand-gold-dark/90 hover:bg-brand-gold-light text-[#1a1a1a] rounded-full transform hover:scale-110 transition-all shadow-xl">
+          <svg xmlns="http://w3.org" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+            <path fill-rule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z" clip-rule="evenodd" />
+          </svg>
+        </button>
+        <span class="absolute bottom-3 left-4 z-20 font-mono text-xs text-brand-gold-light font-medium tracking-wider">Festival Reel 2026</span>
+      </div>
+    </div>
+
+    <!-- Right Column: Quick Stats / Audience Draw Matrix -->
+    <div class="bg-zinc-900 border border-brand-gold-dark/10 rounded-2xl p-6 flex flex-col justify-between">
+      <div>
+        <h3 class="font-bodoni text-xl font-semibold text-brand-gold-light mb-2">Audience Draw & Metrics</h3>
+        <p class="font-montserrat text-xs text-gray-400 mb-6">Verified analytics reflecting our streaming and local physical market attendance footprints.</p>
+      </div>
+      
+      <!-- Stats Layout Grid -->
+      <div class="grid grid-cols-2 gap-4">
+        <div class="bg-zinc-950/60 p-4 border border-zinc-800/50 rounded-xl text-center">
+          <span class="block font-bodoni text-2xl font-bold text-brand-gold-light">45k+</span>
+          <span class="font-montserrat text-[10px] tracking-wider text-gray-400 uppercase">Monthly Listeners</span>
+        </div>
+        <div class="bg-zinc-950/60 p-4 border border-zinc-800/50 rounded-xl text-center">
+          <span class="block font-bodoni text-2xl font-bold text-brand-gold-light">98%</span>
+          <span class="font-montserrat text-[10px] tracking-wider text-gray-400 uppercase">Venue Cap Filled</span>
+        </div>
+        <div class="bg-zinc-950/60 p-4 border border-zinc-800/50 rounded-xl text-center">
+          <span class="block font-bodoni text-2xl font-bold text-brand-gold-light">12k+</span>
+          <span class="font-montserrat text-[10px] tracking-wider text-gray-400 uppercase">Social Followers</span>
+        </div>
+        <div class="bg-zinc-950/60 p-4 border border-zinc-800/50 rounded-xl text-center">
+          <span class="block font-bodoni text-2xl font-bold text-brand-gold-light">4.9/5</span>
+          <span class="font-montserrat text-[10px] tracking-wider text-gray-400 uppercase">Promoter Rating</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 3. DOWNLOADABLE BAND ASSETS & TECHNICAL STAGE PLOT -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+    
+    <!-- Asset Card 1: Promo Photos Bundle -->
+    <div class="bg-zinc-900/40 border border-zinc-800 p-5 rounded-xl flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="p-2.5 bg-zinc-950 rounded-lg text-brand-gold-dark">
+          <svg xmlns="http://w3.org" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375 0 1 1-.75 0 .375 0 0 1 .75 0Z" />
+          </svg>
+        </div>
+        <div>
+          <h4 class="font-montserrat text-sm font-semibold text-gray-200">Press Photos</h4>
+          <span class="text-[11px] text-gray-500 font-mono">Hi-Res ZIP (45MB)</span>
+        </div>
+      </div>
+      <a href="#" class="text-brand-gold-dark hover:text-brand-gold-light transition-colors p-1">
+        <svg xmlns="http://w3.org" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
+      </a>
+    </div>
+
+    <!-- Asset Card 2: Bio & Press Release Doc -->
+    <div class="bg-zinc-900/40 border border-zinc-800 p-5 rounded-xl flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="p-2.5 bg-zinc-950 rounded-lg text-brand-gold-dark">
+          <svg xmlns="http://w3.org" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+          </svg>
+        </div>
+        <div>
+          <h4 class="font-montserrat text-sm font-semibold text-gray-200">Official Bio</h4>
+          <span class="text-[11px] text-gray-500 font-mono">PDF (Short & Long)</span>
+        </div>
+      </div>
+      <a href="#" class="text-brand-gold-dark hover:text-brand-gold-light transition-colors p-1">
+        <svg xmlns="http://w3.org" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
+      </a>
+    </div>
+
+    <!-- Asset Card 3: Stage Plot & Tech Rider -->
+    <div class="bg-zinc-900/40 border border-zinc-800 p-5 rounded-xl flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="p-2.5 bg-zinc-950 rounded-lg text-brand-gold-dark">
+          <svg xmlns="http://w3.org" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z" />
+          </svg>
+        </div>
+        <div>
+          <h4 class="font-montserrat text-sm font-semibold text-gray-200">Stage & Tech Plot</h4>
+          <span class="text-[11px] text-gray-500 font-mono">PDF Tech Rider</span>
+        </div>
+      </div>
+      <a href="#" class="text-brand-gold-dark hover:text-brand-gold-light transition-colors p-1">
+        <svg xmlns="http://w3.org" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
+      </a>
+    </div>
+
+  </div>
+
+  <!-- 4. FINAL GIG BOOKING INQUIRY FORM (The main CTA wrapper constrained to 1/3 layout) -->
+  <div class="w-full md:w-2/3 mx-auto border-t border-brand-gold-dark/20 pt-10 text-center">
+    <h3 class="font-bodoni text-2xl font-bold text-brand-gold-light mb-2">Secure a Date</h3>
+    <p class="font-montserrat text-xs text-gray-400 mb-6">Now reviewing bookings for the fallback festival circuit and premium venues.</p>
+    
+    <!-- Inline quick form interface -->
+    <form class="flex flex-col sm:flex-row gap-3 justify-center items-center">
+      <input type="email" placeholder="Promoter / Venue Email" class="w-full sm:w-64 bg-zinc-950 border border-zinc-800 text-sm rounded-lg p-2.5 focus:ring-1 focus:ring-brand-gold-dark focus:border-brand-gold-dark text-gray-200" required>
+      <button type="submit" class="w-full sm:w-auto px-6 py-2.5 font-montserrat text-xs font-bold uppercase tracking-wider text-[#1a1a1a] bg-brand-gold-dark hover:bg-brand-gold-light rounded-lg shadow-md transition-all whitespace-nowrap">
+        Request Booking Info
+      </button>
+    </form>
+  </div>
+
+</section>
+
+<!-- Main Tour Calendar Module Wrapper Container -->
+<div class="w-full max-w-5xl mx-auto px-4 py-12 bg-[#1a1a1a] text-gray-200 antialiased font-montserrat">
+  
+  <!-- Section Title -->
+  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-brand-gold-dark/20 pb-6 mb-8 gap-4">
+    <div>
+      <h3 class="font-bodoni text-2xl md:text-3xl font-bold text-brand-gold-light tracking-wide">Performance Schedule</h3>
+      <p class="text-xs text-gray-400 mt-1">Real-time routing data, availability tracking, and past layout metrics.</p>
+    </div>
+    
+    <!-- Flowbite Interactive Segmented Filter Control Toggle -->
+    <div class="inline-flex rounded-lg shadow-sm bg-zinc-950 p-1 border border-zinc-800" role="group">
+      <button type="button" class="px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#1a1a1a] bg-brand-gold-dark rounded-md transition-all shadow">
+        Upcoming
+      </button>
+      <button type="button" class="px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-gray-400 hover:text-brand-gold-light rounded-md transition-all">
+        Past History
       </button>
     </div>
-
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="testPage.html">Home</a></li>
-        <!-- <li><a id="authLogin" target="_blank">MEMBER LOGIN</a></li> -->
-        <li><a href="https://guitarlanguage.github.io/GalacticFish/" target="_blank">GALACTIC FISH</a></li>
-        <li><a href="https://guitarlanguage.github.io/triviaGame/"  target="_blank">GUITAR TRIVIA</a></li>
-        <li><a href="https://guitarlanguage.github.io/busterTribute/" target="_blank">HEROES</a></li>
-        <!-- <li><a href="#" target="_blank">SKYPE LESSON</a></li> -->
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <!-- <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
-          <li><button id="authLogin" type="button" class="btn btn-danger">Log in/Sign Up</button></li> -->
-        <!-- <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li> -->
-      </ul>
-    </div>
   </div>
-</nav>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-4">
-        <div class="panel-heading text-center">Tune Up</div>
-        <div class="panel-body"><iframe class="img-responsive" style="width:100%" src="https://www.youtube.com/embed/0O1EsQny_KM"  frameborder="0" allowfullscreen></iframe>
+  <!-- Responsive Layout Framework: Swaps table tracking into scroll containers for touch displays -->
+  <div class="relative overflow-x-auto shadow-2xl border border-brand-gold-dark/10 rounded-2xl bg-zinc-900/60">
+    <table class="w-full text-left text-sm text-gray-300">
+      
+      <!-- Table Headers -->
+      <thead class="text-xs uppercase tracking-wider text-brand-gold-dark/80 bg-zinc-950/80 border-b border-zinc-800">
+        <tr>
+          <th scope="col" class="px-6 py-4 font-semibold">Date</th>
+          <th scope="col" class="px-6 py-4 font-semibold">Venue / Event</th>
+          <th scope="col" class="px-6 py-4 font-semibold">Location</th>
+          <th scope="col" class="px-6 py-4 font-semibold">Status / Draw</th>
+          <th scope="col" class="px-6 py-4 text-right">Action</th>
+        </tr>
+      </thead>
+      
+      <!-- Table Body Content -->
+      <tbody class="divide-y divide-zinc-800/60">
+        <!-- The container where your list will live -->
+        <div id="tour-dates-container">
+          <p>Loading upcoming shows...</p>
         </div>
-    </div>
-    <div class="col-md-4">
-          <div class="panel-heading text-center">Small Shapes Big Sounds</div>
-          <div class="panel-body"><iframe class="img-responsive" style="width:100%"src="https://www.youtube.com/embed/xuv5aGV765E" frameborder="0" allowfullscreen></iframe>
-        </div>
-   </div>
-    <div class="col-md-4">
-          <div class="panel-heading text-center">Oh By Jingo</div>
-            <div class="panel-body"><iframe class="img-responsive" style="width:100%" src="https://www.youtube.com/embed/WDYQ_3Ib808" frameborder="0" allowfullscreen></iframe>
-          </div>
-    </div>
-  </div>
-</div><br>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-4">
-        <div class="panel-heading text-center">Sunny Tutorial</div>
-        <div class="panel-body"><iframe style="width:100%" src="https://www.youtube.com/embed/oSWXZxi-dqM" frameborder="0" allowfullscreen></iframe></div>
-    </div>
+        <!-- JavaScript to fetch and render the JSON payload -->
+        <script>
+          async function loadTourDates() {
+            try {
+              // Fetch the local JSON file relative to your repository root
+              const response = await fetch('assets/js/gigs.json');   
+              const gigs = await response.json();
+              
+              const container = document.getElementById('tour-dates-container');
+              
+              // Clear the loading text
+              container.innerHTML = '';
+              
+              if (gigs.length === 0) {
+                container.innerHTML = '<p>No upcoming shows scheduled. Check back soon!</p>';
+                return;
+              }
 
-    <div class="col-md-4">
-          <div class="panel-heading text-center">I Will Tutorial</div>
-          <div class="panel-body"><iframe style="width:100%" src="https://www.youtube.com/embed/U1EIjWW_H1E" frameborder="0" allowfullscreen></iframe>
-       </div>
-   </div>
+              // Build out the markup string
+              let htmlMarkup = '<table class="tour-list w-full text-left text-sm text-gray-300">';
+              
+              gigs.forEach(gig => {
+                htmlMarkup += `
+                  <thead class="tour-row text-xs uppercase tracking-wider text-brand-gold-dark/80 bg-zinc-950/80 border-b border-zinc-800">
+                    <div>
+                      <span class="tour-date" style="font-size: 0.85rem; color: #666;">${gig.date} @ ${gig.time}</span>
+                      <h3 class="tour-venue" style="margin: 0.25rem 0;">${gig.venue}</h3>
+                      <span class="tour-location" style="font-size: 0.85rem; color: #888;">${gig.location}</span>
+                    </div>
+                    ${gig.link ? `<a href="${gig.link}" class="tour-btn" target="_blank" style="align-self: center; padding: 0.5rem 1rem; background: #000; color: #fff; text-decoration: none; border-radius: 4px;">Tickets</a>` : ''}
+                  </div>
+                `;
+              });
+              
+              htmlMarkup += '</table>';
+              container.innerHTML = htmlMarkup;
+              
+            } catch (error) {
+              console.error('Error loading tour dates:', error);
+              document.getElementById('tour-dates-container').innerHTML = '<p>Unable to load tour dates at this time.</p>';
+            }
+          }
 
-    <div class="col-md-4">
-      <div class="panel-heading text-center">Blues Champion</div>
-      <div class="panel-body"><iframe style="width:100%" src="https://www.youtube.com/embed/rihaU4KWoEY" frameborder="0" allowfullscreen></iframe></div>
-    </div>
+          // Execute the fetch routine as soon as the DOM content is parsed
+          document.addEventListener('DOMContentLoaded', loadTourDates);
+        </script>
 
+        <!-- Row 1: High Visibility Festival Headline -->
+        <tr class="hover:bg-zinc-900/80 transition-colors group">
+          <td class="px-6 py-5 whitespace-nowrap font-mono text-xs text-brand-gold-light font-semibold">
+            AUG 14, 2026
+          </td>
+          <td class="px-6 py-5 font-medium text-white">
+            <span class="block">Elysian Echoes Festival</span>
+            <span class="text-[11px] text-brand-gold-dark/70 font-normal">Main Stage • Headliner Slot</span>
+          </td>
+          <td class="px-6 py-5 text-gray-400 whitespace-nowrap">Paris, FR</td>
+          <td class="px-6 py-5 whitespace-nowrap">
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-950 text-emerald-400 border border-emerald-800/40">
+              Confirmed
+            </span>
+          </td>
+          <td class="px-6 py-5 text-right whitespace-nowrap">
+            <a href="#" class="inline-flex items-center justify-center px-3 py-1.5 text-2xs font-bold uppercase tracking-wider text-[#1a1a1a] bg-brand-gold-dark hover:bg-brand-gold-light rounded-md transition-all">
+              Tickets
+            </a>
+          </td>
+        </tr>
+
+        <!-- Row 2: Standard Premium Venue Show -->
+        <tr class="hover:bg-zinc-900/80 transition-colors">
+          <td class="px-6 py-5 whitespace-nowrap font-mono text-xs text-gray-400">
+            SEP 02, 2026
+          </td>
+          <td class="px-6 py-5 font-medium text-white">
+            <span class="block">The Vanguard Symphony Hall</span>
+            <span class="text-[11px] text-gray-500 font-normal">Acoustic Ambient Showcase</span>
+          </td>
+          <td class="px-6 py-5 text-gray-400 whitespace-nowrap">London, UK</td>
+          <td class="px-6 py-5 whitespace-nowrap">
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-amber-950 text-amber-400 border border-amber-800/40">
+              Low Tickets
+            </span>
+          </td>
+          <td class="px-6 py-5 text-right whitespace-nowrap">
+            <a href="#" class="inline-flex items-center justify-center px-3 py-1.5 text-2xs font-bold uppercase tracking-wider text-[#1a1a1a] bg-brand-gold-dark hover:bg-brand-gold-light rounded-md transition-all">
+              Tickets
+            </a>
+          </td>
+        </tr>
+
+        <!-- Row 3: Hold / Booking Hold Option -->
+        <tr class="hover:bg-zinc-900/80 transition-colors bg-zinc-950/20">
+          <td class="px-6 py-5 whitespace-nowrap font-mono text-xs text-gray-500">
+            OCT 19, 2026
+          </td>
+          <td class="px-6 py-5 font-medium text-gray-400 italic">
+            <span class="block">Routing Hold • Available</span>
+            <span class="text-[11px] text-gray-500 font-normal not-italic">Midwest Region Touring Bloc</span>
+          </td>
+          <td class="px-6 py-5 text-gray-500 whitespace-nowrap">Chicago, US</td>
+          <td class="px-6 py-5 whitespace-nowrap">
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-zinc-800 text-zinc-400 border border-zinc-700/40">
+              Hold Open
+            </span>
+          </td>
+          <td class="px-6 py-5 text-right whitespace-nowrap">
+            <a href="#epk-section" class="inline-flex items-center justify-center px-3 py-1.5 text-2xs font-bold uppercase tracking-wider text-brand-gold-dark border border-brand-gold-dark/40 hover:text-brand-gold-light hover:border-brand-gold-light rounded-md transition-all">
+              Book Date
+            </a>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
   </div>
 </div>
 
-<div class="container text center">
-  <div class="row">
-    <div class="col-md-4">
-      <div class="panel-heading text-center">I'm Just a Bill</div>
-      <div class="panel-body">
-        <iframe style="width:100%" src="https://www.youtube.com/embed/SQ7jQ3mhUog" frameborder="0" allowfullscreen></iframe>
-      </div>
-    </div>
 
-    <div class="col-md-4">
+    <!-- flowbite -->
+    <script src="node_modules\flowbite\dist\flowbite.min.js"></script>
 
-      <div class="panel-heading text-center">I Will Tutorial</div>
-      <div class="panel-body">
-        <iframe style="width:100%" src="https://www.youtube.com/embed/U1EIjWW_H1E" frameborder="0" allowfullscreen></iframe>
-
-      </div>
-
-    </div>
-
-    <div class="col-md-4">
-
-      <div class="panel-heading text-center">Sublime: What I Got solo</div>
-      <div class="panel-body">
-        <iframe style="width:100%" src="https://www.youtube.com/embed/KMqOf9tq3wc" frameborder="0" allowfullscreen></iframe>
-
-      </div>
-    </div>
-
-  </div>
-</div>
+  </body>
 
 
- <br><br>
+  
 
-<footer class="container-fluid text-center">
-  <p>@tom lachance</p>
-  <!-- <form class="form-inline">hail to the zoo:
-    <input type="email" class="form-control" size="50" placeholder="Email Address">
-    <button type="button" class="btn btn-danger">Stay in the know</button>
-  </form> -->
-</footer>
 
-<script src="assets/js/app.js"></script>
-
-</body>
 </html>

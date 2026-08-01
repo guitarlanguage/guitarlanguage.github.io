@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-08-15",
+    "venue": "28 Mile Distilling",
+    "location": "Highland Park, IL",
+    "time": "7:00 PM",
+    "link": "https://example.com"
+  },
+  {
+    "date": "2026-09-02",
+    "venue": "Ravinia Festival",
+    "location": "Highland Park, IL",
+    "time": "8:30 PM",
+    "link": ""
+  }
+]
