@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="motion-safe:scroll-smooth">
   <head>
     <title font-bodoni>La R&eacutesonance</title>
     <meta charset="utf-8">
@@ -20,10 +20,10 @@
         <!-- 1. DESKTOP LEFT SIDE: 4 Navigation Links -->
         <div class="flex items-center justify-start gap-6 font-montserrat text-sm font-medium tracking-wide">
           
-          <a href="#" class="text-brand-gold-dark hover:text-brand-gold-light transition-colors">About</a>
-          <a href="#" class="text-brand-gold-dark hover:text-brand-gold-light transition-colors">Music</a>
-          <a href="#" class="text-brand-gold-dark hover:text-brand-gold-light transition-colors">Videos</a>
-          <a href="#" class="text-brand-gold-dark hover:text-brand-gold-light transition-colors">Gallery</a>
+          <a href="#epk-section" class="text-brand-gold-dark hover:text-brand-gold-light transition-colors">About</a>
+          <a href="#music" class="text-brand-gold-dark hover:text-brand-gold-light transition-colors">Music</a>
+          <a href="#video" class="text-brand-gold-dark hover:text-brand-gold-light transition-colors">Videos</a>
+          <a href="#schedule" class="text-brand-gold-dark hover:text-brand-gold-light transition-colors">Schedule</a>
         </div>
 
         <!-- 2. DESKTOP CENTER: Company Brand Logo/Text -->
@@ -62,16 +62,16 @@
       <!-- MOBILE DROPDOWN PANEL: Toggled dynamically by Flowbite JS target attributes -->
       <div class="hidden w-full md:hidden bg-zinc-950/95 border-b border-brand-gold-dark/10" id="mobile-menu">
         <div class="flex flex-col font-montserrat p-4 space-y-3 text-base font-medium tracking-wide">
-          <a href="#" class="block py-2 px-3 text-brand-gold-light border-b border-zinc-900">Home</a>
-          <a href="#" class="block py-2 px-3 text-brand-gold-dark hover:text-brand-gold-light border-b border-zinc-900">About</a>
-          <a href="#" class="block py-2 px-3 text-brand-gold-dark hover:text-brand-gold-light border-b border-zinc-900">Services</a>
-          <a href="#" class="block py-2 px-3 text-brand-gold-dark hover:text-brand-gold-light border-b border-zinc-900">Blog</a>
-          <a href="#" class="block py-2 px-3 text-brand-gold-dark hover:text-brand-gold-light border-b border-zinc-900">Login</a>
-          <div class="pt-2">
+          <a href="#epk-section" class="block py-2 px-3 text-brand-gold-light border-b border-zinc-900">Home</a>
+          <a href="#epk-section" class="block py-2 px-3 text-brand-gold-dark hover:text-brand-gold-light border-b border-zinc-900">About</a>
+          <a href="#music" class="block py-2 px-3 text-brand-gold-dark hover:text-brand-gold-light border-b border-zinc-900">Music</a>
+          <a href="#video" class="block py-2 px-3 text-brand-gold-dark hover:text-brand-gold-light border-b border-zinc-900">Videos</a>
+          <a href="#schedule" class="block py-2 px-3 text-brand-gold-dark hover:text-brand-gold-light border-b border-zinc-900">Schedule</a>
+          <!--<div class="pt-2">
             <a href="#" class="block text-center py-2.5 px-4 font-semibold text-xs uppercase tracking-wider text-[#1a1a1a] bg-brand-gold-dark hover:bg-brand-gold-light rounded-md">
               Tickets
             </a>
-          </div>
+          </div>-->
         </div>
       </div>
 
@@ -85,19 +85,19 @@
     <span class="font-montserrat text-xs font-semibold tracking-widest text-brand-gold-dark uppercase block mb-2">Electronic Press Kit</span>
     <h2 class="font-bodoni text-4xl md:text-5xl font-bold text-brand-gold-light tracking-wide mb-4">Booking & Press Assets</h2>
     <div class="w-24 h-0.5 bg-brand-gold-dark/40 mx-auto mb-6"></div>
-    <p class="font-montserrat text-sm md:text-base text-gray-400 max-w-2xl mx-auto italic">
-      <!--"An immersive sonic journey bridging classical precision with modern atmospheric depth. La Résonance delivers high-energy, unforgettable live music experiences tailored for premium concert spaces and festivals."-->
+    <p class="font-montserrat text-sm md:text-base text-gray-400 max-w-3xl mx-auto italic">
+      "An immersive sonic journey bridging classical precision with modern atmospheric depth. La Résonance delivers high-energy, unforgettable live music experiences tailored for premium concert spaces and festivals."
     </p>
   </div>
 
   <!-- 2. TWO-COLUMN CORE CONTENT: Media Player & Stats -->
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+  <div id="video"class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
     
     <!-- Left Column: Featured Video / Audio Reel Container -->
     <div class="bg-zinc-900 border border-brand-gold-dark/10 rounded-2xl p-5 flex flex-col justify-between">
       <div>
         <h3 class="font-bodoni text-xl font-semibold text-brand-gold-light mb-3">Live Performance Reel</h3>
-        <p class="font-montserrat text-xs text-gray-400 mb-4">See how we captivate the room. High-definition multi-track audio recorded live.</p>
+        <p class="font-montserrat text-xs text-gray-400 mb-4"></p>
       </div>
       <!-- Video Element Frame Placeholder -->
       <div class="aspect-video bg-zinc-950 border border-zinc-800 rounded-xl flex items-center justify-center relative overflow-hidden group">
@@ -133,40 +133,33 @@
       
     </div>
 
-    <!-- Right Column: Quick Stats / Audience Draw Matrix -->
-    <div class="bg-zinc-900 border border-brand-gold-dark/10 rounded-2xl p-6 flex flex-col justify-between">
+    <!-- Right Column: Audio Player Showcase Container -->
+    <!-- SoundCloud Integration Container -->
+    <div id="music"class="bg-zinc-900 border border-brand-gold-dark/10 rounded-2xl p-5 flex flex-col justify-between">
       <div>
-        <h3 class="font-bodoni text-xl font-semibold text-brand-gold-light mb-2">Audience Draw & Metrics</h3>
-        <p class="font-montserrat text-xs text-gray-400 mb-6">Verified analytics reflecting our streaming and local physical market attendance footprints.</p>
+        <h3 class="font-bodoni text-xl font-semibold text-brand-gold-light mb-2">SoundCloud</h3>
+        <p class="font-montserrat text-xs text-gray-400 mb-6"></p>
       </div>
-      
-      <!-- Stats Layout Grid -->
-      <div class="grid grid-cols-2 gap-4">
-        <div class="bg-zinc-950/60 p-4 border border-zinc-800/50 rounded-xl text-center">
-          <span class="block font-bodoni text-2xl font-bold text-brand-gold-light">45k+</span>
-          <span class="font-montserrat text-[10px] tracking-wider text-gray-400 uppercase">Monthly Listeners</span>
-        </div>
-        <div class="bg-zinc-950/60 p-4 border border-zinc-800/50 rounded-xl text-center">
-          <span class="block font-bodoni text-2xl font-bold text-brand-gold-light">98%</span>
-          <span class="font-montserrat text-[10px] tracking-wider text-gray-400 uppercase">Venue Cap Filled</span>
-        </div>
-        <div class="bg-zinc-950/60 p-4 border border-zinc-800/50 rounded-xl text-center">
-          <span class="block font-bodoni text-2xl font-bold text-brand-gold-light">12k+</span>
-          <span class="font-montserrat text-[10px] tracking-wider text-gray-400 uppercase">Social Followers</span>
-        </div>
-        <div class="bg-zinc-950/60 p-4 border border-zinc-800/50 rounded-xl text-center">
-          <span class="block font-bodoni text-2xl font-bold text-brand-gold-light">4.9/5</span>
-          <span class="font-montserrat text-[10px] tracking-wider text-gray-400 uppercase">Promoter Rating</span>
-        </div>
-      </div>
+      <iframe 
+        class="w-full h-full"
+        scrolling="no" 
+        frameborder="no" 
+        allow="autoplay; encrypted-media" 
+        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%253Aplaylists%253A1374468865&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
+      </iframe>
+      <!-- Clean Website-Matched Attribution Link 
+      <div class="mt-2 pl-1 font-montserrat text-[10px] tracking-wider text-gray-400 uppercase overflow-hidden white-space-nowrap text-ellipsis">
+        <a href="https://soundcloud.com/tom-la-chance" title="Tom La Chance" target="_blank" class="hover:text-brand-gold-light transition-colors text-gray-400 no-underline">Tom La Chance</a> 
+        <span class="text-zinc-600 mx-1">•</span> 
+        <a href="https://soundcloud.com/tom-la-chance/sets/songs-for-leighton" title="Songs For Leighton" target="_blank" class="hover:text-brand-gold-light transition-colors text-brand-gold-light no-underline">Songs For Leighton</a>
+      </div>-->
     </div>
-
   </div>
 
-  <!-- 3. DOWNLOADABLE BAND ASSETS & TECHNICAL STAGE PLOT -->
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+  <!-- 3. DOWNLOADABLE BAND ASSETS & TECHNICAL STAGE PLOT 
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">-->
     
-    <!-- Asset Card 1: Promo Photos Bundle -->
+    <!-- Asset Card 1: Promo Photos Bundle 
     <div class="bg-zinc-900/40 border border-zinc-800 p-5 rounded-xl flex items-center justify-between">
       <div class="flex items-center gap-3">
         <div class="p-2.5 bg-zinc-950 rounded-lg text-brand-gold-dark">
@@ -182,9 +175,9 @@
       <a href="#" class="text-brand-gold-dark hover:text-brand-gold-light transition-colors p-1">
         <svg xmlns="http://w3.org" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
       </a>
-    </div>
+    </div>-->
 
-    <!-- Asset Card 2: Bio & Press Release Doc -->
+    <!-- Asset Card 2: Bio & Press Release Doc 
     <div class="bg-zinc-900/40 border border-zinc-800 p-5 rounded-xl flex items-center justify-between">
       <div class="flex items-center gap-3">
         <div class="p-2.5 bg-zinc-950 rounded-lg text-brand-gold-dark">
@@ -200,9 +193,9 @@
       <a href="#" class="text-brand-gold-dark hover:text-brand-gold-light transition-colors p-1">
         <svg xmlns="http://w3.org" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
       </a>
-    </div>
+    </div>-->
 
-    <!-- Asset Card 3: Stage Plot & Tech Rider -->
+    <!-- Asset Card 3: Stage Plot & Tech Rider 
     <div class="bg-zinc-900/40 border border-zinc-800 p-5 rounded-xl flex items-center justify-between">
       <div class="flex items-center gap-3">
         <div class="p-2.5 bg-zinc-950 rounded-lg text-brand-gold-dark">
@@ -221,21 +214,21 @@
       </a>
     </div>
 
-  </div>
+  </div>-->
 
-  <!-- 4. FINAL GIG BOOKING INQUIRY FORM (The main CTA wrapper constrained to 1/3 layout) -->
+  <!-- 4. FINAL GIG BOOKING INQUIRY FORM (The main CTA wrapper constrained to 1/3 layout) 
   <div class="w-full md:w-2/3 mx-auto border-t border-brand-gold-dark/20 pt-10 text-center">
     <h3 class="font-bodoni text-2xl font-bold text-brand-gold-light mb-2">Secure a Date</h3>
     <p class="font-montserrat text-xs text-gray-400 mb-6">Now reviewing bookings for the fallback festival circuit and premium venues.</p>
-    
-    <!-- Inline quick form interface -->
+    -->
+    <!-- Inline quick form interface 
     <form class="flex flex-col sm:flex-row gap-3 justify-center items-center">
       <input type="email" placeholder="Promoter / Venue Email" class="w-full sm:w-64 bg-zinc-950 border border-zinc-800 text-sm rounded-lg p-2.5 focus:ring-1 focus:ring-brand-gold-dark focus:border-brand-gold-dark text-gray-200" required>
       <button type="submit" class="w-full sm:w-auto px-6 py-2.5 font-montserrat text-xs font-bold uppercase tracking-wider text-[#1a1a1a] bg-brand-gold-dark hover:bg-brand-gold-light rounded-lg shadow-md transition-all whitespace-nowrap">
         Request Booking Info
       </button>
     </form>
-  </div>
+  </div>-->
 
 </section>
 
@@ -243,18 +236,26 @@
 <div class="w-full max-w-5xl mx-auto px-4 py-12 bg-[#1a1a1a] text-gray-200 antialiased font-montserrat">
   
   <!-- Section Title -->
-  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-brand-gold-dark/20 pb-6 mb-8 gap-4">
+  <div id="schedule"class="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-brand-gold-dark/20 pb-6 mb-8 gap-4">
     <div>
       <h3 class="font-bodoni text-2xl md:text-3xl font-bold text-brand-gold-light tracking-wide">Performance Schedule</h3>
-      <p class="text-xs text-gray-400 mt-1">Real-time routing data, availability tracking, and past layout metrics.</p>
+      <!--<p class="text-xs text-gray-400 mt-1">Real-time routing data, availability tracking, and past layout metrics.</p>-->
     </div>
     
     <!-- Flowbite Interactive Segmented Filter Control Toggle -->
     <div class="inline-flex rounded-lg shadow-sm bg-zinc-950 p-1 border border-zinc-800" role="group">
-      <button type="button" class="px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#1a1a1a] bg-brand-gold-dark rounded-md transition-all shadow">
+      <button 
+        id="btn-upcoming"
+        type="button" 
+        data-filter-target="content-upcoming"
+        class="px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#1a1a1a] bg-brand-gold-dark rounded-md transition-all shadow">
         Upcoming
       </button>
-      <button type="button" class="px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-gray-400 hover:text-brand-gold-light rounded-md transition-all">
+      <button 
+        id="btn-past"
+        type="button" 
+        data-filter-target="content-past"
+        class="px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-gray-400 hover:text-brand-gold-light rounded-md transition-all">
         Past History
       </button>
     </div>
@@ -277,85 +278,182 @@
       
       <!-- Table Body Content (Rows get injected directly here) -->
       <tbody id="tour-dates-container" class="divide-y divide-zinc-800/60">
-        <!-- Your JavaScript will loop and append the dynamic <tr> items right here -->
+        <!-- JavaScript will loop and append the dynamic <tr> items right here -->
+          <!-- Upcoming gigs -->
+        <tbody id="content-upcoming" class="divide-y divide-zinc-800/60">
+          <!-- JS injects upcoming rows here -->
+        </tbody>
+
+        <!-- Past gigs -->
+        <tbody id="content-past" class="divide-y divide-zinc-800/60 hidden">
+          <!-- JS injects past rows here -->
+        </tbody>
+
+
       </tbody>
 
     </table>
 
     <!-- Script kept neatly outside the layout table elements -->
     <script>
+      
+      // make it so the humans can read the dates better
+      function formatGigDate(dateString) {
+        const date = new Date(dateString);
+        return new Intl.DateTimeFormat('en-US', {
+          weekday: 'short',
+          month: 'short',
+          day: 'numeric',
+          year: 'numeric'
+        }).format(date);
+      }
+      
+      // ensure organization of dates
+      function sortGigsByDate(gigs) {
+        return gigs.sort((a, b) => new Date(a.date) - new Date(b.date));
+      }
+
       async function loadTourDates() {
         try {
-          const response = await fetch('assets/js/gigs.json');   
-          const gigs = await response.json();
-          
-          const container = document.getElementById('tour-dates-container');
-          container.innerHTML = '';
-          
+          const response = await fetch('assets/js/gigs.json');
+          const gigs = sortGigsByDate(await response.json()); 
+         
+
+          const upcomingContainer = document.getElementById('content-upcoming');
+          const pastContainer = document.getElementById('content-past');
+
+          upcomingContainer.innerHTML = '';
+          pastContainer.innerHTML = '';
+
           if (gigs.length === 0) {
-            container.innerHTML = '<tr><td colspan="5" class="px-6 py-8 text-center text-gray-500 italic">No upcoming shows scheduled. Check back soon!</td></tr>';
+            upcomingContainer.innerHTML =
+              '<tr><td colspan="5" class="px-6 py-8 text-center text-gray-500 italic">No upcoming shows scheduled. Check back soon!</td></tr>';
             return;
           }
 
-          let htmlMarkup = '';
+          
+          const now = Date.now();
           
           gigs.forEach(gig => {
-            // 1. Handle Status Badges Dynamically based on your JSON values
+            const gigTimestamp = Date.parse(gig.date);
+
+            // Status badge
             let statusBadge = '';
-            if (gig.status === 'Confirmed') {
-              statusBadge = `<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-950 text-emerald-400 border border-emerald-800/40">Confirmed</span>`;
-            } else if (gig.status === 'Low Tickets') {
-              statusBadge = `<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-amber-950 text-amber-400 border border-amber-800/40">Low Tickets</span>`;
-            } else {
-              statusBadge = `<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-zinc-800 text-zinc-400 border border-zinc-700/40">${gig.status || 'Confirmed'}</span>`;
+            switch (gig.status) {
+              case 'Confirmed':
+                statusBadge = `<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-950 text-emerald-400 border border-emerald-800/40">Confirmed</span>`;
+                break;
+              case 'Low Tickets':
+                statusBadge = `<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-amber-950 text-amber-400 border border-amber-800/40">Low Tickets</span>`;
+                break;
+              case 'Sold Out':
+                statusBadge = `<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-amber-950 text-amber-400 border border-amber-800/40">Sold Out</span>`;
+                break;
+              default:
+                statusBadge = `<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-zinc-800 text-zinc-400 border border-zinc-700/40">${gig.status || 'Confirmed'}</span>`;
             }
 
-            // 2. Handle Action Button Dynamically (Tickets Link vs Book Date placeholder)
+            // Action button
             let actionButton = '';
-            if (gig.link) {
+            if (gig.link && gig.price !== "free") {
               actionButton = `
-                <a href="${gig.link}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-3 py-1.5 text-2xs font-bold uppercase tracking-wider text-[#1a1a1a] bg-brand-gold-dark hover:bg-brand-gold-light rounded-md transition-all">
+                <a href="${gig.link}" target="_blank" rel="noopener noreferrer"
+                  class="inline-flex items-center justify-center px-3 py-1.5 text-2xs font-bold uppercase tracking-wider text-[#1a1a1a] bg-brand-gold-dark hover:bg-brand-gold-light rounded-md transition-all">
                   Tickets
+                </a>`;
+            } else if (gig.link && gig.price === "free") {
+              actionButton = `
+                <a href="${gig.link}" target="_blank" rel="noopener noreferrer"
+                  class="inline-flex items-center justify-center px-3 py-1.5 text-2xs font-bold uppercase tracking-wider text-[#1a1a1a] bg-brand-gold-dark hover:bg-brand-gold-light rounded-md transition-all">
+                  Free
                 </a>`;
             } else {
               actionButton = `
-                <a href="#epk-section" class="inline-flex items-center justify-center px-3 py-1.5 text-2xs font-bold uppercase tracking-wider text-brand-gold-dark border border-brand-gold-dark/40 hover:text-brand-gold-light hover:border-brand-gold-light rounded-md transition-all">
+                <a href="#epk-section"
+                  class="inline-flex items-center justify-center px-3 py-1.5 text-2xs font-bold uppercase tracking-wider text-brand-gold-dark border border-brand-gold-dark/40 hover:text-brand-gold-light hover:border-brand-gold-light rounded-md transition-all">
                   Book Date
                 </a>`;
             }
 
-            // 3. Build Semantic Table Rows matching your exact style specs
-            htmlMarkup += `
-              <tr class="hover:bg-zinc-900/80 transition-colors group">
-                <td class="px-6 py-5 whitespace-nowrap font-mono text-xs text-brand-gold-light font-semibold">
-                  ${gig.date}
-                </td>
+            // Build row
+            const row = `
+              <tr class="animate-fadeIn hover:bg-zinc-900/80 transition-colors group">
+                <td class="px-6 py-5 whitespace-nowrap font-mono text-xs text-brand-gold-light font-semibold">${formatGigDate(gig.date)}</td>
                 <td class="px-6 py-5 font-medium text-white">
                   <span class="block">${gig.venue}</span>
                   <span class="text-[11px] text-brand-gold-dark/70 font-normal">${gig.notes || ''}</span>
                 </td>
                 <td class="px-6 py-5 text-gray-400 whitespace-nowrap">${gig.location}</td>
-                <td class="px-6 py-5 whitespace-nowrap">
-                  ${statusBadge}
-                </td>
-                <td class="px-6 py-5 text-right whitespace-nowrap">
-                  ${actionButton}
-                </td>
+                <td class="px-6 py-5 whitespace-nowrap">${statusBadge}</td>
+                <td class="px-6 py-5 text-right whitespace-nowrap">${actionButton}</td>
               </tr>
             `;
+
+            // Append to correct container
+            if (gigTimestamp >= now) {
+              upcomingContainer.innerHTML += row;
+            } else {
+              pastContainer.innerHTML += row;
+            }
           });
-          
-          container.innerHTML = htmlMarkup;
-          
+
         } catch (error) {
           console.error('Error loading tour dates:', error);
-          document.getElementById('tour-dates-container').innerHTML = '<tr><td colspan="5" class="px-6 py-5 text-center text-red-400">Unable to load tour dates at this time.</td></tr>';
+          document.getElementById('tour-dates-container').innerHTML =
+            '<tr><td colspan="5" class="px-6 py-5 text-center text-red-400">Unable to load tour dates at this time.</td></tr>';
         }
       }
 
-      document.addEventListener('DOMContentLoaded', loadTourDates);
-    </script>
+      document.addEventListener('DOMContentLoaded', () => {
+        loadTourDates();
 
+        // Smooth scrolling
+        document.body.addEventListener('click', e => {
+          const anchor = e.target.closest('a[href^="#"]');
+          if (!anchor) return;
+
+          const target = document.querySelector(anchor.getAttribute('href'));
+          if (!target) return;
+
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+
+        // Toggle buttons
+        const btnUpcoming = document.getElementById('btn-upcoming');
+        const btnPast = document.getElementById('btn-past');
+        const upcomingContainer = document.getElementById('content-upcoming');
+        const pastContainer = document.getElementById('content-past');
+
+        if (btnUpcoming && btnPast && upcomingContainer && pastContainer) {
+          const activeClasses = ['font-semibold', 'text-[#1a1a1a]', 'bg-brand-gold-dark', 'shadow'];
+          const inactiveClasses = ['font-medium', 'text-gray-400', 'hover:text-brand-gold-light'];
+
+          function toggle(activeBtn, inactiveBtn, showEl, hideEl) {
+            activeBtn.classList.add(...activeClasses);
+            activeBtn.classList.remove(...inactiveClasses);
+
+            inactiveBtn.classList.add(...inactiveClasses);
+            inactiveBtn.classList.remove(...activeClasses);
+
+            showEl.classList.remove('hidden');
+            hideEl.classList.add('hidden');
+          }
+
+          btnUpcoming.addEventListener('click', () => {
+            toggle(btnUpcoming, btnPast, upcomingContainer, pastContainer);
+          });
+
+          btnPast.addEventListener('click', () => {
+            toggle(btnPast, btnUpcoming, pastContainer, upcomingContainer);
+          });
+        }
+      });
+
+
+      
+
+    </script>
   </div>
 </div>
 
@@ -363,12 +461,5 @@
     <!-- flowbite 
     <script src="node_modules\flowbite\dist\flowbite.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
-
-
   </body>
-
-
-  
-
-
 </html>

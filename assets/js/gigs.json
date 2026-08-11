@@ -1,16 +1,40 @@
 [
   {
-    "date": "2026-08-05",
+    "date": "2026-09-06T14:30:00Z",
     "venue": "Wooden Nickel Open Mic",
     "location": "Highwood, IL",
     "time": "6:30 PM",
-    "link": "https://example.com"
+    "status": "confirmed",
+    "price": "free",
+    "link": "https://maps.apple.com/place?place-id=I87BBC1D49868A6FD&address=444+Lake+View+Ave%2C+Highwood%2C+IL++60040%2C+United+States&coordinate=42.204994%2C-87.808567&name=Wooden+Nickel&_provider=9902"
   },
   {
-    "date": "2026-08-12",
+    "date": "2026-08-12T14:30:00Z",
+    "venue": "Wooden Nickel Open Mic",
+    "location": "Highwood, IL",
+    "time": "6:30 PM",
+    "status": "confirmed",
+    "price": "free",
+    "link": "https://maps.apple.com/place?place-id=I87BBC1D49868A6FD&address=444+Lake+View+Ave%2C+Highwood%2C+IL++60040%2C+United+States&coordinate=42.204994%2C-87.808567&name=Wooden+Nickel&_provider=9902"
+  },
+  
+  {
+    "date": "2026-08-01T14:30:00Z",
     "venue": "Wooden Nickel Open Mic",
     "location": "Highwood, IL",
     "time": "8:30 PM",
-    "link": ""
+    "status": "Sold Out",
+    "price": "free",
+    "link": "https://maps.apple.com/place?place-id=I87BBC1D49868A6FD&address=444+Lake+View+Ave%2C+Highwood%2C+IL++60040%2C+United+States&coordinate=42.204994%2C-87.808567&name=Wooden+Nickel&_provider=9902"
+  },
+
+  {
+    "date": "2026-07-01T14:30:00Z",
+    "venue": "Wooden Nickel Open Mic",
+    "location": "Highwood, IL",
+    "time": "8:30 PM",
+    "status": "Sold Out",
+    "price": "free",
+    "link": "https://maps.apple.com/place?place-id=I87BBC1D49868A6FD&address=444+Lake+View+Ave%2C+Highwood%2C+IL++60040%2C+United+States&coordinate=42.204994%2C-87.808567&name=Wooden+Nickel&_provider=9902"
   }
 ]
